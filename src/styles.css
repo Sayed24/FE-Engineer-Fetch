@@ -1,149 +1,177 @@
-/* Page Style */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  /* Container */
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
-  }
-  
-  /* Form Style */
-  .input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Dog Cards Grid */
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Authentication Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields */
+.input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Buttons */
+.button, .sort-button, .find-match {
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover, .sort-button:hover, .find-match:hover {
+  background: #0056b3;
+}
+
+.sort-button {
+  margin-left: 10px;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Dog Grid */
+.dog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Dog Card */
+.dog-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+}
+
+.dog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dog-info {
+  padding: 10px;
+}
+
+.favorite-button {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.favorite-button:hover {
+  background: #e84118;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+/* Modal for Enlarged Image */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 500px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.close-button:hover {
+  background: #e84118;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .dog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: 1fr;
   }
-  
-  /* Dog Card */
-  .dog-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    padding: 15px;
-    transition: transform 0.3s ease-in-out;
+
+  .filters {
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  .dog-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Dog Image */
-  .dog-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  /* Dog Info */
-  .dog-info {
-    padding: 10px;
-  }
-  
-  .dog-info h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  
-  .dog-info p {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  /* Favorite Button */
-  .favorite-button {
-    background-color: #ff6b6b;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    margin-top: 10px;
-    transition: background 0.3s;
-  }
-  
-  .favorite-button:hover {
-    background-color: #e63946;
-  }
-  
-  /* Sorting Button */
-  .sort-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    border: none;
-    transition: background 0.3s;
-  }
-  
-  .sort-button:hover {
-    background-color: #218838;
-  }
-  
-  /* Find Match Button */
-  .find-match {
-    background-color: #ffcc00;
-    color: #333;
-    font-weight: bold;
-    padding: 12px;
-    width: 100%;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .find-match:hover {
-    background-color: #e6b800;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .dog-grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-  }
-  
+}
