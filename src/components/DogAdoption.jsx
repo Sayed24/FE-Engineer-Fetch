@@ -54,7 +54,7 @@ export default function DogAdoption() {
   const [sortOrder, setSortOrder] = useState("asc");
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const dogsPerPage = 10;
+  const dogsPerPage = 12;
 
   useEffect(() => {
     if (isAuthenticated) {
